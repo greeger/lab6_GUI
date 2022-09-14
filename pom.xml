@@ -80,7 +80,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.xvideos.lab6_gui/com.xvideos.lab6_gui.HelloApplication</mainClass>
+                            <mainClass>com.xvideos.lab6_gui/com.company.lab6_gui.Lab6Application</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

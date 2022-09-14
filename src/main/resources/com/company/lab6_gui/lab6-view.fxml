@@ -5,12 +5,53 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.xvideos.lab6_gui.HelloController">
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextArea?>
+<GridPane alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.company.lab6_gui.Lab6Controller">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+    <Label text="Код дисциплины" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <TextField fx:id="disciplineCodeTextField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Label text="Наименование дисциплины" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="disciplineNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Фамилия преподавателя" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="teacherTextField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label text="Код группы" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="groupCodeTextField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Label text="Количество студентов в группе" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <TextField fx:id="studentNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Label text="Количество часов лекций" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <TextField fx:id="hoursLectureNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <Label text="Количество часов практик" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+    <TextField fx:id="hoursPracticeNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    <Label text="Курсовая работа" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+    <CheckBox fx:id="termPaperCheckBox" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <Label text="Итоговый контроль" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+    <HBox GridPane.columnIndex="1" GridPane.rowIndex="8">
+        <fx:define>
+            <ToggleGroup fx:id="isExamGroup" />
+        </fx:define>
+        <RadioButton fx:id="isExamRadioButton" text="Экзамен" toggleGroup="$isExamGroup" selected="true"/>
+        <RadioButton text="Зачет" toggleGroup="$isExamGroup"/>
+    </HBox>
+
+    <Button text="Сохранить" onAction="#onSaveButtonClick" GridPane.columnIndex="0" GridPane.rowIndex="9" GridPane.columnSpan="2"/>
+
+    <TextArea fx:id="outputTextArea" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.rowSpan="9"/>
+    <HBox GridPane.columnIndex="2" GridPane.rowIndex="9">
+        <Label text="Поиск по: "/>
+        <Button text="фамилии преподавателя" onAction="#findTeacher"/>
+        <Button text="коду группы" onAction="#findGroupCode"/>
+        <Button text="наличию курсовой работы" onAction="#findTermPaper"/>
+        <Button text="виду итогового контроля" onAction="#findIsExam"/>
+    </HBox>
+</GridPane>

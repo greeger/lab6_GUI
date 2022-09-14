@@ -6,6 +6,6 @@ module com.xvideos.lab6_gui {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.xvideos.lab6_gui to javafx.fxml;
-    exports com.xvideos.lab6_gui;
+    opens com.company.lab6_gui to javafx.fxml;
+    exports com.company.lab6_gui;
 }
